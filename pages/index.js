@@ -10,7 +10,11 @@ export default function Home() {
   const createMultipleSessions = () => {
     const url = 'https://rbidemo.netlify.app'; // Target URL
     const newSessions = [];
-    for (let i = 0; i < 15; i++) {
+const createMultipleSessions = () => {
+  const url = 'https://rbidemo.netlify.app'; // Target URL
+  const newSessions = [];
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
       newSessions.push(
         <iframe
           key={i}
@@ -24,7 +28,11 @@ export default function Home() {
           }}
         ></iframe>
       );
-    }
+      setSessions([...newSessions]); // Update the state after each addition
+    }, i * 3000); // Delay of 3 seconds per iframe
+  }
+};
+
     setSessions(newSessions);
   };
 
