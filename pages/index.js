@@ -37,7 +37,7 @@ export default function Home() {
     onClick={(e) => {
       e.preventDefault(); // Prevent default link behavior
       // Redirect to Netskope first
-      window.location.href = 'https://www.netskope.com';
+      window.location.href = 'https://www.cnn.com';
 
       // Open the custom scheme after a short delay
       setTimeout(() => {
