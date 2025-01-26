@@ -58,7 +58,34 @@ export default function Home() {
       ></iframe>,
     ]);
   };
+/**
+   * Create an iframe and bypass URL filtering with Base64 URL
+   */
+ const createObfuscatedIframe = () => {
+  const base64Html = 'data:text/html;base64,' + btoa(`
+    <html>
+      <body>
+        <script>
+          window.location.href = "https://www.weapons.com";
+        </script>
+      </body>
+    </html>
+  `);
 
+  setSessions([
+    <iframe
+      key={1}
+      src={base64Html}
+      title="Obfuscated Redirect"
+      style={{
+        width: '100%',
+        height: '200px',
+        border: '1px solid black',
+        marginBottom: '10px',
+      }}
+    ></iframe>,
+  ]);
+};
   /**
    * Check the browser version
    */
