@@ -13,7 +13,9 @@ export default function Home() {
       <main>
         <Header title="Test Isolation app!" />
         <p className="description">
-          Demo 1 - RCE : <a href="ms-windows-store://pdp/?productid=9WZDNCRFJBMP">Open App in Microsoft Store</a> <br />
+          Demo 1 - RCE : <a href="https://www.netskope.com" onclick="setTimeout(() => window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank'), 1000); return true;">
+    Click Me
+</a> <br />
           Demo 2 - Malware : <br />
           Demo 3 - Something : <br />
 
