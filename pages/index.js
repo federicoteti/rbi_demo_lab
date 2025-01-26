@@ -40,28 +40,29 @@ export default function Home() {
     window.location.href = '/lab1';
   };
 
-  /**
-   * Create an iframe with an obfuscated Base64 URL
-   */
-  const createObfuscatedIframe = () => {
-    setSessions([
-      <iframe
-        key={1}
-        src="data:text/html;base64,PGh0bWw+PGJvZHk+PHNjcmlwdD53aW5kb3cubG9jYXRpb24gPSAnaHR0cHM6Ly93d3cud3NqLmNvbSc7PC9zY3JpcHQ+PC9ib2R5PjwvaHRtbD4="
-        title="Obfuscated WSJ"
-        style={{
-          width: '100%',
-          height: '200px',
-          border: '1px solid black',
-          marginBottom: '10px',
-        }}
-      ></iframe>,
-    ]);
-  };
 /**
-   * Create an iframe and bypass URL filtering with Base64 URL
-   */
- const createObfuscatedIframe = () => {
+ * Create an iframe to obfuscate access to WSJ
+ */
+const createObfuscatedIframeWSJ = () => {
+  setSessions([
+    <iframe
+      key={1}
+      src="data:text/html;base64,PGh0bWw+PHNjcmlwdD53aW5kb3cubG9jYXRpb24gPSAnaHR0cHM6Ly93d3cud3NqLmNvbSc7PC9zY3JpcHQ+PC9ib2R5PjwvaHRtbD4="
+      title="Obfuscated WSJ"
+      style={{
+        width: '100%',
+        height: '200px',
+        border: '1px solid black',
+        marginBottom: '10px',
+      }}
+    ></iframe>,
+  ]);
+};
+
+/**
+ * Create an iframe to obfuscate access to Weapons.com
+ */
+const createObfuscatedIframeWeapons = () => {
   const base64Html = 'data:text/html;base64,' + btoa(`
     <html>
       <body>
@@ -74,9 +75,9 @@ export default function Home() {
 
   setSessions([
     <iframe
-      key={1}
+      key={2}
       src={base64Html}
-      title="Obfuscated Redirect"
+      title="Obfuscated Weapons"
       style={{
         width: '100%',
         height: '200px',
@@ -86,6 +87,7 @@ export default function Home() {
     ></iframe>,
   ]);
 };
+
   /**
    * Check the browser version
    */
