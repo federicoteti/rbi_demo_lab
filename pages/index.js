@@ -30,19 +30,23 @@ export default function Home() {
 
       <main>
         <Header title="Test Isolation App!" />
-        <p className="description">
-          Demo 1 - RCE:{' '}
-          <a
-            href="https://www.cnn.com"
-            onClick={() =>
-              setTimeout(() => {
-                window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
-              }, 1000)
-            }
-          >
-            Click Me
-          </a>
-          <br />
+ <p className="description">
+  Demo 1 - RCE:{' '}
+  <a
+    href="#"
+    onClick={(e) => {
+      e.preventDefault(); // Prevent default link behavior
+      // Open the custom scheme in a new tab first
+      window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
+      // Redirect the current tab to Netskope after the custom scheme triggers
+      setTimeout(() => {
+        window.location.href = 'https://www.netskope.com';
+      }, 1000); // 1-second delay
+    }}
+  >
+    Click Me
+  </a>
+      <br />
           Demo 2 - Malware: <br />
           Demo 3 - Something: <br />
         </p>
