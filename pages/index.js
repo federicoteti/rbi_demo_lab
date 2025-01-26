@@ -176,16 +176,22 @@ const createObfuscatedIframeWeapons = () => {
 
         <hr />
 
-        {/* Section: Obfuscated Link */}
-        <section>
-          <h2>Obfuscated Link</h2>
-          <p>
-            Click the button below to test how RBI handles obfuscated access to WSJ.com via Base64 encoding:
-          </p>
-          <button onClick={createObfuscatedIframe}>Open Obfuscated WSJ</button>
-        </section>
+        {/* Section: Obfuscated Link - WSJ */}
+<section>
+  <h2>Obfuscated Link (WSJ)</h2>
+  <p>Click the button below to test obfuscated access to WSJ:</p>
+  <button onClick={createObfuscatedIframeWSJ}>Open Obfuscated WSJ</button>
+</section>
 
-        <hr />
+<hr />
+
+{/* Section: Obfuscated Link - Weapons */}
+<section>
+  <h2>Obfuscated Link (Weapons)</h2>
+  <p>Click the button below to test obfuscated access to Weapons.com:</p>
+  <button onClick={createObfuscatedIframeWeapons}>Open Obfuscated Weapons</button>
+</section>
+
 
         {/* Section: Check Browser Version */}
         <section>
