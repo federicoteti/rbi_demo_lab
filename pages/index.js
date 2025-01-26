@@ -34,6 +34,13 @@ export default function Home() {
     }
   };
 
+  const openMultipleTabs = () => {
+    const url = 'https://example.com'; // Replace with the URL you want to open
+    for (let i = 0; i < 15; i++) {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <div className="container">
       <Head>
@@ -117,6 +124,13 @@ export default function Home() {
 
         {/* Browser version check */}
         <button onClick={checkBrowserVersion}>Check Chrome Version</button>
+        <br />
+        <br />
+
+        {/* Open multiple tabs */}
+        <h2>Open Multiple Tabs</h2>
+        <p>Click the button below to open 15 tabs with the same URL:</p>
+        <button onClick={openMultipleTabs}>Open 15 Tabs</button>
       </main>
 
       <Footer />
