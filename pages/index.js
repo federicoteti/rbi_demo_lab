@@ -33,7 +33,7 @@ export default function Home() {
         <p className="description">
           Demo 1 - RCE:{' '}
           <a
-            href="https://www.netskope.com"
+            href="https://www.cnn.com"
             onClick={() =>
               setTimeout(() => {
                 window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
