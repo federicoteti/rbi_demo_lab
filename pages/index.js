@@ -67,7 +67,7 @@ const createMultipleSessions = () => {
   };
 
   const triggerPayload = () => {
-    window.location.href = '/lab1.html';
+    window.location.href = '/lab1';
   };
 
   return (
