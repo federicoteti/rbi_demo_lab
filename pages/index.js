@@ -13,9 +13,9 @@ export default function Home() {
       <main>
         <Header title="Test Isolation app!" />
         <p className="description">
-          Demo 1 - RCE <code>pages/index.js</code><br />
-          Demo 2 - Malware <code> URL </code><br />
-          Demo 3 - Something <code> URL </code><br />
+          Demo 1 - RCE : <br />
+          Demo 2 - Malware : <br />
+          Demo 3 - Something : <br />
         </p>
       </main>
 
