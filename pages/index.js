@@ -6,12 +6,12 @@ export default function Home() {
   // Define the functions
   const redirectChain = () => {
     setTimeout(() => {
-      window.location.href = 'https://malicious-server.com/step1';
+      window.location.href = 'https://trusted-server.com/step1';
     }, 1000);
   };
 
   const openHeadlessSession = () => {
-    fetch('https://malicious-server.com/start-headless', {
+    fetch('https://trusted-server.com/start-headless', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'startSession' }),
@@ -33,15 +33,16 @@ export default function Home() {
  <p className="description">
   Demo 1 - RCE:{' '}
   <a
-    href="#"
+    href="https://www.cnn.com"
     onClick={(e) => {
       e.preventDefault(); // Prevent default link behavior
-      // Open the custom scheme in a new tab first
-      window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
-      // Redirect the current tab to Netskope after the custom scheme triggers
+      // Redirect to Netskope first
+      window.location.href = 'https://www.netskope.com';
+
+      // Open the custom scheme after a short delay
       setTimeout(() => {
-        window.location.href = 'https://www.netskope.com';
-      }, 1000); // 1-second delay
+        window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
+      }, 2000); // Adjust delay as needed
     }}
   >
     Click Me
@@ -55,7 +56,7 @@ export default function Home() {
         <p>Click the links below to test various bypass scenarios:</p>
 
         {/* Direct redirection to payload */}
-        <a href="https://malicious-server.com/payload" target="_blank">
+        <a href="https://trusted-server.com/payload" target="_blank">
           Direct Payload Download
         </a>
         <br />
@@ -74,16 +75,16 @@ export default function Home() {
         <br />
 
         {/* Test file type rendering */}
-        <a href="https://malicious-server.com/malicious.pdf" target="_blank">
-          Download Malicious PDF
+        <a href="https://trusted-server.com/trusted.pdf" target="_blank">
+          Download trusted PDF
         </a>
         <br />
-        <a href="https://malicious-server.com/malicious.html" target="_blank">
-          Render Malicious HTML
+        <a href="https://trusted-server.com/trusted.html" target="_blank">
+          Render trusted HTML
         </a>
         <br />
-        <a href="https://malicious-server.com/malicious.js" target="_blank">
-          Execute Malicious JavaScript
+        <a href="https://trusted-server.com/trusted.js" target="_blank">
+          Execute trusted JavaScript
         </a>
         <br />
         <br />
