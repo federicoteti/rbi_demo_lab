@@ -21,6 +21,19 @@ export default function Home() {
       .catch((error) => console.error('Error:', error));
   };
 
+  const checkBrowserVersion = () => {
+    const userAgent = navigator.userAgent;
+    const versionMatch = userAgent.match(/Chrome\/([0-9.]+)/);
+
+    if (versionMatch) {
+      console.log(`Detected Chrome Version: ${versionMatch[1]}`);
+      alert(`Detected Chrome Version: ${versionMatch[1]}`);
+    } else {
+      console.log('Unable to detect Chrome version.');
+      alert('Unable to detect Chrome version.');
+    }
+  };
+
   return (
     <div className="container">
       <Head>
@@ -30,24 +43,27 @@ export default function Home() {
 
       <main>
         <Header title="Test Isolation App!" />
- <p className="description">
-  Demo 1 - RCE:{' '}
-  <a
-    href="https://www.cnn.com"
-    onClick={(e) => {
-      e.preventDefault(); // Prevent default link behavior
-      // Redirect to Netskope first
-      window.location.href = 'https://www.cnn.com';
+        <p className="description">
+          Demo 1 - RCE:{' '}
+          <a
+            href="https://www.cnn.com"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default link behavior
+              // Redirect to CNN first
+              window.location.href = 'https://www.cnn.com';
 
-      // Open the custom scheme after a short delay
-      setTimeout(() => {
-        window.open('ms-windows-store://pdp/?productid=9WZDNCRFJBMP', '_blank');
-      }, 2000); // Adjust delay as needed
-    }}
-  >
-    Click Me
-  </a>
-      <br />
+              // Open the custom scheme after a short delay
+              setTimeout(() => {
+                window.open(
+                  'ms-windows-store://pdp/?productid=9WZDNCRFJBMP',
+                  '_blank'
+                );
+              }, 2000); // Adjust delay as needed
+            }}
+          >
+            Click Me
+          </a>
+          <br />
           Demo 2 - Malware: <br />
           Demo 3 - Something: <br />
         </p>
@@ -96,6 +112,11 @@ export default function Home() {
         >
           Obfuscated Link
         </a>
+        <br />
+        <br />
+
+        {/* Browser version check */}
+        <button onClick={checkBrowserVersion}>Check Chrome Version</button>
       </main>
 
       <Footer />
