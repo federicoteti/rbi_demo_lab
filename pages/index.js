@@ -96,10 +96,8 @@ export default function Home() {
     const versionMatch = userAgent.match(/Chrome\/[0-9.]+/);
 
     if (versionMatch) {
-      console.log(`Detected Chrome Version: ${versionMatch[0]}`);
       alert(`Detected Chrome Version: ${versionMatch[0]}`);
     } else {
-      console.log('Unable to detect Chrome version.');
       alert('Unable to detect Chrome version.');
     }
   };
@@ -139,6 +137,20 @@ export default function Home() {
       .catch((error) => console.error('Error:', error));
   };
 
+  /**
+   * Download Unknown Malware files with random names
+   */
+  const downloadUnknownMalware = (fileType) => {
+    const randomNumber = Math.floor(Math.random() * 1000000);
+    const fileName = `get-unknown-${randomNumber}.${fileType}`;
+    const link = document.createElement('a');
+    link.href = `https://trusted-server.com/${fileName}`;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="container">
       <Head>
@@ -148,89 +160,64 @@ export default function Home() {
 
       <main>
         <Header title="RBI PoC Testing App!" />
-        <h1>RBI PoC Testing</h1>
-        <p>
-          This application demonstrates various RBI bypass PoCs, including opening multiple sessions, triggering GPU-based payloads, and testing obfuscated links.
-        </p>
+
+        <section>
+          <h1>RBI PoC Testing</h1>
+          <p>This application demonstrates various RBI bypass PoCs, including multi-session testing, GPU-based payloads, and zero-day protection testing.</p>
+        </section>
 
         <hr />
 
-        {/* Section: Open Multiple Sessions */}
         <section>
           <h2>Open Multiple Sessions</h2>
-          <p>Click the button below to open 15 new sessions of <code>https://rbidemo.netlify.app</code>.</p>
           <button onClick={openMultipleSessions}>Open 15 Sessions</button>
           <div style={{ marginTop: '20px' }}>{sessions}</div>
         </section>
 
         <hr />
 
-        {/* Section: Trigger GPU Payload */}
         <section>
           <h2>Trigger Payload</h2>
-          <p>
-            Click the button below to load the GPU compositing vulnerability payload for educational purposes.
-          </p>
-          <button onClick={triggerPayload}>Trigger Payload</button>
+          <button onClick={triggerPayload}>Trigger GPU Payload</button>
         </section>
 
         <hr />
 
-        {/* Section: Obfuscated Link - WSJ */}
         <section>
-          <h2>Obfuscated Link (WSJ)</h2>
-          <p>Click the button below to test obfuscated access to WSJ:</p>
+          <h2>Obfuscated Links</h2>
           <button onClick={createObfuscatedIframeWSJ}>Open Obfuscated WSJ</button>
-        </section>
-
-        <hr />
-
-        {/* Section: Obfuscated Link - Weapons */}
-        <section>
-          <h2>Obfuscated Link (Weapons)</h2>
-          <p>Click the button below to test obfuscated access to Weapons.com:</p>
           <button onClick={createObfuscatedIframeWeapons}>Open Obfuscated Weapons</button>
         </section>
 
         <hr />
 
-        {/* Section: Check Browser Version */}
         <section>
           <h2>Check Browser Version</h2>
-          <p>Click the button below to check the browser's version:</p>
           <button onClick={checkBrowserVersion}>Check Chrome Version</button>
         </section>
 
         <hr />
 
-        {/* Section: Redirect Chain */}
         <section>
           <h2>Redirect Chain</h2>
-          <p>Click the button below to start a redirect chain:</p>
           <button onClick={redirectChain}>Start Redirect Chain</button>
         </section>
 
         <hr />
 
-        {/* Section: Trigger Headless Session */}
         <section>
           <h2>Trigger Headless Session</h2>
-          <p>Click the button below to simulate starting a headless session:</p>
-          <button onClick={openHeadlessSession}>Open Headless Chrome Session</button>
+          <button onClick={openHeadlessSession}>Open Headless Session</button>
         </section>
 
         <hr />
 
-        {/* Classic HREF Link */}
         <section>
-          <h2>Classic HREF Link</h2>
-          <p>
-            Click the link below to visit a deceptive website:
-          </p>
-         <a href="http://bancociudadesp.com" rel="noopener noreferrer">
-  Visit Deceptive Website
-</a>
-
+          <h2>Unknown Malware</h2>
+          <p>Download files for zero-day protection testing:</p>
+          <button onClick={() => downloadUnknownMalware('doc')}>Download DOC</button>
+          <button onClick={() => downloadUnknownMalware('xls')}>Download XLS</button>
+          <button onClick={() => downloadUnknownMalware('pdf')}>Download PDF</button>
         </section>
       </main>
 
