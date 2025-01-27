@@ -33,12 +33,6 @@ export default function Home() {
     }
   };
 
-/**
-* Fresh Phishy link 1/27/25
-*/
-
-<a href="http://bancociudadesp.com" target="_blank" rel="noopener noreferrer">Visit Deceptive website</a>
-
   /**
    * Trigger the GPU/WebGL payload by navigating to /lab1
    */
@@ -46,53 +40,53 @@ export default function Home() {
     window.location.href = '/lab1';
   };
 
-/**
- * Create an iframe to obfuscate access to WSJ
- */
-const createObfuscatedIframeWSJ = () => {
-  setSessions([
-    <iframe
-      key={1}
-      src="data:text/html;base64,PGh0bWw+PHNjcmlwdD53aW5kb3cubG9jYXRpb24gPSAnaHR0cHM6Ly93d3cud3NqLmNvbSc7PC9zY3JpcHQ+PC9ib2R5PjwvaHRtbD4="
-      title="Obfuscated WSJ"
-      style={{
-        width: '100%',
-        height: '200px',
-        border: '1px solid black',
-        marginBottom: '10px',
-      }}
-    ></iframe>,
-  ]);
-};
+  /**
+   * Create an iframe to obfuscate access to WSJ
+   */
+  const createObfuscatedIframeWSJ = () => {
+    setSessions([
+      <iframe
+        key={1}
+        src="data:text/html;base64,PGh0bWw+PHNjcmlwdD53aW5kb3cubG9jYXRpb24gPSAnaHR0cHM6Ly93d3cud3NqLmNvbSc7PC9zY3JpcHQ+PC9ib2R5PjwvaHRtbD4="
+        title="Obfuscated WSJ"
+        style={{
+          width: '100%',
+          height: '200px',
+          border: '1px solid black',
+          marginBottom: '10px',
+        }}
+      ></iframe>,
+    ]);
+  };
 
-/**
- * Create an iframe to obfuscate access to Weapons.com
- */
-const createObfuscatedIframeWeapons = () => {
-  const base64Html = 'data:text/html;base64,' + btoa(`
-    <html>
-      <body>
-        <script>
-          window.location.href = "https://www.weapons.com";
-        </script>
-      </body>
-    </html>
-  `);
+  /**
+   * Create an iframe to obfuscate access to Weapons.com
+   */
+  const createObfuscatedIframeWeapons = () => {
+    const base64Html = 'data:text/html;base64,' + btoa(`
+      <html>
+        <body>
+          <script>
+            window.location.href = "https://www.weapons.com";
+          </script>
+        </body>
+      </html>
+    `);
 
-  setSessions([
-    <iframe
-      key={2}
-      src={base64Html}
-      title="Obfuscated Weapons"
-      style={{
-        width: '100%',
-        height: '200px',
-        border: '1px solid black',
-        marginBottom: '10px',
-      }}
-    ></iframe>,
-  ]);
-};
+    setSessions([
+      <iframe
+        key={2}
+        src={base64Html}
+        title="Obfuscated Weapons"
+        style={{
+          width: '100%',
+          height: '200px',
+          border: '1px solid black',
+          marginBottom: '10px',
+        }}
+      ></iframe>,
+    ]);
+  };
 
   /**
    * Check the browser version
@@ -183,21 +177,22 @@ const createObfuscatedIframeWeapons = () => {
         <hr />
 
         {/* Section: Obfuscated Link - WSJ */}
-<section>
-  <h2>Obfuscated Link (WSJ)</h2>
-  <p>Click the button below to test obfuscated access to WSJ:</p>
-  <button onClick={createObfuscatedIframeWSJ}>Open Obfuscated WSJ</button>
-</section>
+        <section>
+          <h2>Obfuscated Link (WSJ)</h2>
+          <p>Click the button below to test obfuscated access to WSJ:</p>
+          <button onClick={createObfuscatedIframeWSJ}>Open Obfuscated WSJ</button>
+        </section>
 
-<hr />
+        <hr />
 
-{/* Section: Obfuscated Link - Weapons */}
-<section>
-  <h2>Obfuscated Link (Weapons)</h2>
-  <p>Click the button below to test obfuscated access to Weapons.com:</p>
-  <button onClick={createObfuscatedIframeWeapons}>Open Obfuscated Weapons</button>
-</section>
+        {/* Section: Obfuscated Link - Weapons */}
+        <section>
+          <h2>Obfuscated Link (Weapons)</h2>
+          <p>Click the button below to test obfuscated access to Weapons.com:</p>
+          <button onClick={createObfuscatedIframeWeapons}>Open Obfuscated Weapons</button>
+        </section>
 
+        <hr />
 
         {/* Section: Check Browser Version */}
         <section>
@@ -211,7 +206,7 @@ const createObfuscatedIframeWeapons = () => {
         {/* Section: Redirect Chain */}
         <section>
           <h2>Redirect Chain</h2>
-          <p>Click the link below to start a redirect chain:</p>
+          <p>Click the button below to start a redirect chain:</p>
           <button onClick={redirectChain}>Start Redirect Chain</button>
         </section>
 
@@ -222,6 +217,23 @@ const createObfuscatedIframeWeapons = () => {
           <h2>Trigger Headless Session</h2>
           <p>Click the button below to simulate starting a headless session:</p>
           <button onClick={openHeadlessSession}>Open Headless Chrome Session</button>
+        </section>
+
+        <hr />
+
+        {/* Classic HREF Link */}
+        <section>
+          <h2>Classic HREF Link</h2>
+          <p>
+            Click the link below to visit a deceptive website:
+          </p>
+          <a
+            href="http://bancociudadesp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Deceptive Website
+          </a>
         </section>
       </main>
 
