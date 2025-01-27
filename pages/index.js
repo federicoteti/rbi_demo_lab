@@ -227,13 +227,10 @@ export default function Home() {
           <p>
             Click the link below to visit a deceptive website:
           </p>
-          <a
-            href="http://bancociudadesp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Deceptive Website
-          </a>
+         <a href="http://bancociudadesp.com" rel="noopener noreferrer">
+  Visit Deceptive Website
+</a>
+
         </section>
       </main>
 
