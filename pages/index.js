@@ -33,6 +33,12 @@ export default function Home() {
     }
   };
 
+/**
+* Fresh Phishy link 1/27/25
+*/
+
+<a href="http://bancociudadesp.com" target="_blank" rel="noopener noreferrer">Visit Deceptive website</a>
+
   /**
    * Trigger the GPU/WebGL payload by navigating to /lab1
    */
