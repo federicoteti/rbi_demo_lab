@@ -219,6 +219,19 @@ export default function Home() {
           <button onClick={() => downloadUnknownMalware('xls')}>Download XLS</button>
           <button onClick={() => downloadUnknownMalware('pdf')}>Download PDF</button>
         </section>
+
+        <hr />
+
+        <section>
+          <h2>Download PDF</h2>
+          <p>Click the link below to download a PDF file:</p>
+          <a
+            href="https://www.netskope.com/wp-content/uploads/2022/10/2024-12-Threat-Protection-DS-386-10.pdf"
+            download
+          >
+            Download Threat Protection Datasheet
+          </a>
+        </section>
       </main>
 
       <Footer />
